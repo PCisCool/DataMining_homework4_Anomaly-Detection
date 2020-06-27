@@ -204,6 +204,65 @@ print('IForest average PRN:', np.average(iforest_prn))
 
 
 
+roc_all = [np.average(knn_roc), np.average(lof_roc), np.average(pca_roc), np.average(iforest_roc)]
+prn_all = [np.average(knn_prn), np.average(lof_prn), np.average(pca_prn), np.average(iforest_prn)]
+names = ['KNN', 'LOF', 'PCA', 'IForest']
+
+plt.figure(figsize=(10, 10), dpi=80)
+# 再创建一个规格为 1 x 1 的子图
+# plt.subplot(1, 1, 1)
+# 柱子总数
+N = 4
+# 包含每个柱子对应值的序列
+values = roc_all
+# 包含每个柱子下标的序列
+index = np.arange(N)
+# 柱子的宽度
+width = 0.45
+# 绘制柱状图, 每根柱子的颜色为紫罗兰色
+p2 = plt.bar(index, values, width, label="ROC", color="#87CEFA")
+# 设置横轴标签
+plt.xlabel('algorithm')
+# 设置纵轴标签
+plt.ylabel('ROC')
+# 添加标题
+plt.title('')
+# 添加纵横轴的刻度
+plt.xticks(index, ('KNN', 'LOF', 'PCA', 'IForest'))
+# plt.yticks(np.arange(0, 10000, 10))
+# 添加图例
+plt.legend(loc="upper right")
+plt.show()
+
+
+
+
+plt.figure(figsize=(10, 10), dpi=80)
+# 再创建一个规格为 1 x 1 的子图
+# plt.subplot(1, 1, 1)
+# 柱子总数
+N = 4
+# 包含每个柱子对应值的序列
+values = prn_all
+# 包含每个柱子下标的序列
+index = np.arange(N)
+# 柱子的宽度
+width = 0.45
+# 绘制柱状图, 每根柱子的颜色为紫罗兰色
+p2 = plt.bar(index, values, width, label="ROC", color="#8000FA")
+# 设置横轴标签
+plt.xlabel('algorithm')
+# 设置纵轴标签
+plt.ylabel('PRN')
+# 添加标题
+plt.title('')
+# 添加纵横轴的刻度
+plt.xticks(index, ('KNN', 'LOF', 'PCA', 'IForest'))
+# plt.yticks(np.arange(0, 10000, 10))
+# 添加图例
+plt.legend(loc="upper right")
+plt.show()
+
 
 
 
